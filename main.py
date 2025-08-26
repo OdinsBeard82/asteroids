@@ -1,6 +1,8 @@
 # this allows us to use code from
 # the open-source pygame library
 # throughout this file
+from player import Player
+
 import pygame
 from constants import *
 
@@ -16,6 +18,9 @@ def main():
     # initialize delta time
     dt = 0
 
+
+    player = Player(x = SCREEN_WIDTH / 2,y = SCREEN_HEIGHT / 2)
+
     while True:
         # Check for quit events at the start of each iteration
         for event in pygame.event.get():
@@ -24,6 +29,11 @@ def main():
 
         # Fill the screen black and refresh the display
         screen.fill((0, 0, 0))
+
+        player.update(dt)
+
+        player.draw(screen)
+
         pygame.display.flip()
 
         # Update delta time (seconds per frame)
