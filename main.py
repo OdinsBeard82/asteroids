@@ -56,9 +56,10 @@ def main():
                 print("Game over!")
                 exit()
 
-            for shot in shots:
+        for shot in list(shots):           # iterate over a copy of shots
+            for asteroid in list(asteroids):  # iterate over a copy of asteroids
                 if shot.collides_with(asteroid):
-                    asteroid.kill()
+                    asteroid.split()
                     shot.kill()
                 
 
